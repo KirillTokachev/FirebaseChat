@@ -35,8 +35,8 @@ public class SingActivity extends AppCompatActivity {
 
     private boolean loginModActive;
 
-    FirebaseDatabase database;
-    DatabaseReference usersDataBaseReference;
+    private FirebaseDatabase database;
+    private DatabaseReference usersDataBaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class SingActivity extends AppCompatActivity {
 
         // Проверка аутентификации
         if (auth.getCurrentUser() != null){
-            startActivity(new Intent(SingActivity.this, MainActivity.class));
+            startActivity(new Intent(SingActivity.this, UserListActivity.class));
         }
 
     }
@@ -90,7 +90,7 @@ public class SingActivity extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "signInWithEmail:success");
                                     FirebaseUser user = auth.getCurrentUser();
-                                    Intent intent = new Intent(SingActivity.this, MainActivity.class);
+                                    Intent intent = new Intent(SingActivity.this, UserListActivity.class);
                                     intent.putExtra("userName", nameEditText.getText().toString().trim());
                                     startActivity(intent);
                                     Toast.makeText(SingActivity.this, "Authentication complete",
@@ -132,7 +132,7 @@ public class SingActivity extends AppCompatActivity {
                                     // Сохраннение в бд данных юзера при регистрации
                                     createUser(user);
 
-                                    Intent intent = new Intent(SingActivity.this, MainActivity.class);
+                                    Intent intent = new Intent(SingActivity.this, UserListActivity.class);
                                     intent.putExtra("userName", nameEditText.getText().toString().trim());
                                     startActivity(intent);
                                     // updateUI(user);
