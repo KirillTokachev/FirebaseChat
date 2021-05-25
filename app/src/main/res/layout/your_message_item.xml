@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linearLayoutYourMessage"
         android:paddingBottom="10dp"
         android:orientation="vertical"
         android:layout_alignParentEnd="true"
@@ -24,6 +25,22 @@
             android:padding="6dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/linearLayoutYourMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true">
+
+        <TextView
+            android:layout_alignParentEnd="true"
+            android:textColor="@android:color/black"
+            android:id="@+id/userNameTextViewYourMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"/>
 
     </LinearLayout>
 

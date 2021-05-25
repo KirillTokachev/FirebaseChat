@@ -75,8 +75,8 @@ public class ChatActivity extends AppCompatActivity {
 
         // получение данных из UserListActivity
         Intent getUsId = getIntent();
-        // Присваивание имени пользователя
 
+        // Присваивание имени пользователя
         if (getUsId != null){
             userName = getUsId.getStringExtra("userName");
             recipientUserId = getUsId.getStringExtra("recipientUserId");

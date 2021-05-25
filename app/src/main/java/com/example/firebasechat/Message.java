@@ -9,7 +9,7 @@ public class Message {
     //Поле определения чьё сообщение
     private boolean whoseIsMessage;
 
-    // Поля для общения с одни пользователем
+    // Поля для общения с одним пользователем
     private String sender;
     private String recipient;
 

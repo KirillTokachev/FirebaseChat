@@ -1,7 +1,6 @@
 package com.example.firebasechat;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +52,13 @@ public class MessageAdapter extends ArrayAdapter<Message> {
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         }
+
+        if (layoutResource == R.layout.my_message_item){
+            viewHolder.userName.setText(messages.getUserName());
+        } else {
+            viewHolder.userName2.setText(messages.getUserName());
+        }
+
         //Проверка отпраки фото или текста
         boolean isText = messages.getImageUrl() == null;
         if (isText){
@@ -86,7 +92,7 @@ public class MessageAdapter extends ArrayAdapter<Message> {
 
     @Override
     public int getViewTypeCount() {
-        return 2;
+        return 3;
     }
 
     // Реализация отображения сообщений в бабле
@@ -94,10 +100,13 @@ public class MessageAdapter extends ArrayAdapter<Message> {
 
         private TextView bubbleText;
         private ImageView photoImageView;
-
+        private TextView userName;
+        private TextView userName2;
         public ViewHolder(View view){
             photoImageView = view.findViewById(R.id.photoImageView);
             bubbleText = view.findViewById(R.id.bubbleText);
+            userName = view.findViewById(R.id.userNameTextViewMessageItem);
+            userName2 = view.findViewById(R.id.userNameTextViewYourMessage);
         }
 
     }
